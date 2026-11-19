@@ -75,7 +75,6 @@ i18nEls.forEach(el => { el.dataset.en = el.innerHTML; });
 
 const langBtn = document.getElementById('langToggle');
 const langLong = langBtn.querySelector('.lang-long');
-const langShort = langBtn.querySelector('.lang-short');
 let lang = 'en';
 
 function setLang(next) {
@@ -88,8 +87,7 @@ function setLang(next) {
   // The button always offers the other language.
   const other = next === 'es' ? 'en' : 'es';
   langLong.textContent = other === 'es' ? 'Español' : 'English';
-  langShort.textContent = other.toUpperCase();
-  langLong.lang = langShort.lang = other;
+  langLong.lang = other;
   langBtn.setAttribute('aria-label', META[next].toggleLabel);
   menuBtn.setAttribute('aria-label', nav.classList.contains('open') ? META[next].menuClose : META[next].menuOpen);
 }
